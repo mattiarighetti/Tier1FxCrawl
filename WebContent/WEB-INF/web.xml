@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description>Mirroring of ajax request to Tier1Fx.</description>
+    <display-name>AjaxMirror</display-name>
+    <servlet-name>AjaxMirror</servlet-name>
+    <servlet-class>com.newtraderlab.services.Tier1FxCrawl.servlets.AjaxMirror</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxMirror</servlet-name>
+    <url-pattern>/utils/AjaxMirror</url-pattern>
+  </servlet-mapping>
 </web-app>
