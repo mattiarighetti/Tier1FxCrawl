@@ -21,10 +21,10 @@ package com.newtraderlab.services.Tier1FxCrawl;
 import java.io.IOException;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlSection;
 import com.newtraderlab.services.Tier1FxCrawl.CrawlerVersion;
 
 /**
@@ -49,7 +49,7 @@ public class Crawler {
 		case 2:
 			return ForexCrawler();
 		case 3:
-			return LiveSpreadCrawler();
+			return LiveSpreadsCrawler();
 		case 4:
 			return WeeklySwapsCrawler();
 		}
@@ -63,9 +63,11 @@ public class Crawler {
 		} catch (FailingHttpStatusCodeException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			webClient.close();
 		}
-		HtmlSection htmlSection = htmlPage.getFirstByXPath("/html/body/div[1]/div/main/section[4]");
-		return htmlSection.asXml().toString();
+		HtmlDivision htmlDivision = htmlPage.getFirstByXPath("/html/body/div/div/main/section/div/div/div/div[2]");
+		return htmlDivision.asXml().toString();
 	}
 	
 	private String ForexCrawler() {
@@ -75,21 +77,25 @@ public class Crawler {
 		} catch (FailingHttpStatusCodeException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			webClient.close();
 		}
-		HtmlSection htmlSection = htmlPage.getFirstByXPath("/html/body/div[1]/div/main/section[2]");
-		return htmlSection.asXml().toString();
+		HtmlDivision htmlDivision = htmlPage.getFirstByXPath("/html/body/div[1]/div/main/section[2]/div/div/div/div[2]");
+		return htmlDivision.asXml().toString();
 	}
 	
-	private String LiveSpreadCrawler() {
+	private String LiveSpreadsCrawler() {
 		HtmlPage htmlPage = null;
 		try {
 			htmlPage = webClient.getPage("https://www.tier1fx.com/t1-brokerage/");
 		} catch (FailingHttpStatusCodeException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			webClient.close();
 		}
-		HtmlSection htmlSection = htmlPage.getFirstByXPath("/html/body/div[1]/div/main/section[5]");
-		return htmlSection.asXml().toString();
+		HtmlDivision htmlDivision = htmlPage.getFirstByXPath("/html/body/div[1]/div/main/section[5]/div/div/div/div[2]");
+		return htmlDivision.asXml().toString();
 	}
 	
 	private String WeeklySwapsCrawler() {
@@ -99,9 +105,11 @@ public class Crawler {
 		} catch (FailingHttpStatusCodeException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			webClient.close();
 		}
-		HtmlSection htmlSection = htmlPage.getFirstByXPath("/html/body/div[1]/div/main/section[8]");
-		return htmlSection.asXml().toString();
+		HtmlDivision htmlDivision = htmlPage.getFirstByXPath("//*[@id=\"swapscalendar-anchor\"]/div/div/div/div[2]");
+		return htmlDivision.asXml().toString();
 	}
 	
 }
