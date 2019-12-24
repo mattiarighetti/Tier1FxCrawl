@@ -45,9 +45,9 @@ public class Crawler {
 	public String getCrawling() {
 		switch (crawlerVersion_.getCrawlerNumber()) {
 		case 1:
-			return CfdsIndicesCrawler();
-		case 2:
 			return CfdsCryptosCrawler();
+		case 2:
+			return CfdsIndicesCrawler();
 		case 3:
 			return ForexCrawler();
 		case 4:
@@ -56,20 +56,6 @@ public class Crawler {
 			return WeeklySwapsCrawler();
 		}
 		return null;
-	}
-	
-	private String CfdsIndicesCrawler() {
-		HtmlPage htmlPage = null;
-		try {
-			htmlPage = webClient.getPage("https://www.tier1fx.com/t1-brokerage/trading/contracts-specifications/");
-		} catch (FailingHttpStatusCodeException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			webClient.close();
-		}
-		HtmlDivision htmlDivision = htmlPage.getFirstByXPath("/html/body/div/div/main/section/div/div/div/div[2]");
-		return htmlDivision.asXml().toString();
 	}
 	
 	private String CfdsCryptosCrawler() {
@@ -83,6 +69,20 @@ public class Crawler {
 			webClient.close();
 		}
 		HtmlDivision htmlDivision = htmlPage.getFirstByXPath("/html/body/div[1]/div/main/section[6]/div/div/div/div[2]");
+		return htmlDivision.asXml().toString();
+	}
+	
+	private String CfdsIndicesCrawler() {
+		HtmlPage htmlPage = null;
+		try {
+			htmlPage = webClient.getPage("https://www.tier1fx.com/t1-brokerage/trading/contracts-specifications/");
+		} catch (FailingHttpStatusCodeException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			webClient.close();
+		}
+		HtmlDivision htmlDivision = htmlPage.getFirstByXPath("/html/body/div/div/main/section/div/div/div/div[2]");
 		return htmlDivision.asXml().toString();
 	}
 	

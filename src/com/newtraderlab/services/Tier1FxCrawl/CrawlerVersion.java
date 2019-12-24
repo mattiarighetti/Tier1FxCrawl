@@ -32,9 +32,9 @@ public final class CrawlerVersion implements Serializable {
 
 	private static final long serialVersionUID = -328732255371115783L;
 	
-	public static final CrawlerVersion FOREX;
 	public static final CrawlerVersion CFDS_CRYPTOS;
 	public static final CrawlerVersion CFDS_INDICES;
+	public static final CrawlerVersion FOREX;
 	public static final CrawlerVersion LIVESPREADS;
 	public static final CrawlerVersion WEEKLYSWAPS;
 	
