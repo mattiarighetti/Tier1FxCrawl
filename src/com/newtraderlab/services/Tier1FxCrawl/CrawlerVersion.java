@@ -33,7 +33,8 @@ public final class CrawlerVersion implements Serializable {
 	private static final long serialVersionUID = -328732255371115783L;
 	
 	public static final CrawlerVersion FOREX;
-	public static final CrawlerVersion CFDS;
+	public static final CrawlerVersion CFDS_CRYPTOS;
+	public static final CrawlerVersion CFDS_INDICES;
 	public static final CrawlerVersion LIVESPREADS;
 	public static final CrawlerVersion WEEKLYSWAPS;
 	
@@ -54,10 +55,11 @@ public final class CrawlerVersion implements Serializable {
     }
 	
 	static {
-		CFDS = new CrawlerVersion(1, "CFDs");
-		FOREX = new CrawlerVersion(2, "Forex");
-		LIVESPREADS = new CrawlerVersion(3, "LiveSpreads");
-		WEEKLYSWAPS = new CrawlerVersion(4, "WeeklySwaps");
+		CFDS_CRYPTOS = new CrawlerVersion(1, "CFDs on cryptos");
+		CFDS_INDICES = new CrawlerVersion(2, "CFDs on indices");
+		FOREX = new CrawlerVersion(3, "Forex");
+		LIVESPREADS = new CrawlerVersion(4, "LiveSpreads");
+		WEEKLYSWAPS = new CrawlerVersion(5, "WeeklySwaps");
 	}
 	
 }
