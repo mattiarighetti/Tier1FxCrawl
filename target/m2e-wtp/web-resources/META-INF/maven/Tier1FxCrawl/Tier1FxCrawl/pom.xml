@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Tier1FxCrawl</groupId>
 	<artifactId>Tier1FxCrawl</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<packaging>war</packaging>
 	<name>Tier1FxCrawl</name>
 	<description>Package for crawling of Tier1Fx website. JSPs will give different parts of some pages of the website for embedding purposes.</description>
@@ -15,7 +15,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<release>12</release>
+					<release>11</release>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -34,5 +34,16 @@
 			<artifactId>htmlunit</artifactId>
 			<version>2.36.0</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
+	<organization>
+		<name>Mattia Righetti</name>
+		<url>https://www.mattiarighetti.it/</url>
+	</organization>
+	<url>https://www.newtraderlab.com/</url>
 </project>

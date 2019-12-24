@@ -1,0 +1,3 @@
+com\newtraderlab\services\Tier1FxCrawl\Crawler.class
+com\newtraderlab\services\Tier1FxCrawl\CrawlerVersion.class
+com\newtraderlab\services\Tier1FxCrawl\servlets\AjaxMirror.class
