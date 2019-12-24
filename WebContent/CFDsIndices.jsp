@@ -39,7 +39,7 @@
 						<div class="row">
 							<div class="col-12">
 								<%
-									Crawler crawler = new Crawler(CrawlerVersion.CFDS);
+									Crawler crawler = new Crawler(CrawlerVersion.CFDS_INDICES);
 									String html = crawler.getCrawling();
 								%>
 								<%=html%>
