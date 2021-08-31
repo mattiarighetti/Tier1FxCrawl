@@ -39,6 +39,7 @@ public class Crawler {
 	private WebClient webClient = new WebClient(BrowserVersion.BEST_SUPPORTED);
 	
 	public Crawler(CrawlerVersion crawlerVersion) {
+		webClient.getOptions().setJavaScriptEnabled(false);
 		this.crawlerVersion_ = crawlerVersion;
 	}
 	
