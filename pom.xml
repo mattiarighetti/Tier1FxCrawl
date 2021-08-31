@@ -4,12 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Tier1FxCrawl</groupId>
 	<artifactId>Tier1FxCrawl</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>war</packaging>
 	<name>Tier1FxCrawl</name>
 	<description>Package for crawling of Tier1Fx website. JSPs will give different parts of some pages of the website for embedding purposes.</description>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<finalName>Tier1FxCrawl</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
